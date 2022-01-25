@@ -60,14 +60,14 @@ class Peikko:
 ### Kirjoita luokka Sankari tähän.
 class Sankari:
     def __init__(self, nimi):
+        self.nimi = nimi
         """Parametrina nimi.
         Sitten tallennetaan nimi muuttuja.
         """
-        self.nimi = nimi
-        rohkeus = random.randint(1, 5)
-        katseen_voima = random.randint(1, 5)
-        self.rohkeus = rohkeus
-        self.katseen_voima = katseen_voima
+        self.rohkeus = random.randint(1, 5)
+        self.katseen_voima = random.randint(1, 10)
+        """Molemmille muuttujille annetaan satunnaiset luvut.
+        """
 
         
 def hurraa(olio):
