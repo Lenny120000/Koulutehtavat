@@ -64,6 +64,10 @@ class Sankari:
         Sitten tallennetaan nimi muuttuja.
         """
         self.nimi = nimi
+        rohkeus = random.randint(1, 5)
+        katseen_voima = random.randint(1, 5)
+        self.rohkeus = rohkeus
+        self.katseen_voima = katseen_voima
 
         
 def hurraa(olio):
