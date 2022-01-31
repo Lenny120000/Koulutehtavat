@@ -59,24 +59,27 @@ class Peikko:
 
 ### Kirjoita luokka Sankari tähän.
 class Sankari:
-    """Luokka kuvaa sankarin
-    """
+
     def __init__(self, nimi):
         self.nimi = nimi
         """Parametrina nimi.
-        Sitten tallennetaan nimi muuttuja.
+        
+        Luokka kuvaa sankari
+        
+        :self.nimi: Sitten tallennetaan nimi muuttujaan.
+        
+        :self.rohkeus ja katseen_voima: Molemmille muuttujille annetaan satunnaiset luvut.
         """
         self.rohkeus = random.randint(2, 8)
         self.katseen_voima = random.randint(3, 10)
-        """Molemmille muuttujille annetaan satunnaiset luvut.
-        """
+
     def arvo_hurraus(self):
-        HURRAUKSET = ["FRAAAG!!!", "TAKE THIS!", "MUST FRAG!", "SIR YES SIR OORAH!", "RAAAGH!!"]
-        return random.choice(HURRAUKSET)
         """Metodi arvo_hurraus antaa satunnaisen hurrauksen listasta ja palauttaa sen.
         """
+        HURRAUKSET = ["FRAAAG!!!", "TAKE THIS!", "MUST FRAG!", "SIR YES SIR OORAH!", "RAAAGH!!"]
+        return random.choice(HURRAUKSET)
 
-        
+
 def hurraa(olio):
     """Tulostaa satunnaisen hurrauksen annetulle oliolle.
 
