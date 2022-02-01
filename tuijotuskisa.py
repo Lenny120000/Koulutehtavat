@@ -1,17 +1,21 @@
 import random
 import time
 
+class Olento:
+    
+    def __init__(self):
+        self.rohkeus = random.randint(2, 8)
+        self.katseen_voima = random.randint(3, 10)
+        
 
-class Peikko:
+class Peikko(Olento):
     """Luokka, joka kuvaa Peikon.
-
     :ivar nimi: peikon nimi, arvotaan
     :type nimi: str
     :ivar rohkeus: peikon rohkeus, arvotaan
     :type rohkeus: int
     :ivar katseen_voima: peikon katseen voimakkuus, arvotaan
     :type katseen_voima: int
-
     Julkiset metodit
         arvo_hurraus()
     """
@@ -22,12 +26,10 @@ class Peikko:
     def __init__(self):
         """Konstruktori."""
         self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
-        self.rohkeus = random.randint(4, 8)
-        self.katseen_voima = random.randint(2, 4)
+        super().__init__(rohkeus, katseen_voima)
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
         """Muodostaa satunnaisen tekstin annetuista tavuista.
-
         :param tavut: ne tavut, joita palautettava teksti voi sisältää
         :type tavut: Union[list[str], tuple[str]]
         :param n: mukaan poimittavien tavujen maksimimäärä
@@ -50,7 +52,6 @@ class Peikko:
 
     def arvo_hurraus(self):
         """Palauttaa satunnaisen hurraushuudahduksen.
-
         :return: hurraava huudahdus
         :rtype: str
         """
@@ -58,10 +59,11 @@ class Peikko:
 
 
 ### Kirjoita luokka Sankari tähän.
-class Sankari:
+class Sankari(Olento):
 
     def __init__(self, nimi):
         self.nimi = nimi
+        super().__init__(rohkeus, katseen_voima)
         """Parametrina nimi.
         
         Luokka kuvaa sankari
@@ -70,8 +72,6 @@ class Sankari:
         
         :self.rohkeus ja katseen_voima: Molemmille muuttujille annetaan satunnaiset luvut.
         """
-        self.rohkeus = random.randint(2, 8)
-        self.katseen_voima = random.randint(3, 10)
 
     def arvo_hurraus(self):
         """Metodi arvo_hurraus antaa satunnaisen hurrauksen listasta ja palauttaa sen.
@@ -82,7 +82,6 @@ class Sankari:
 
 def hurraa(olio):
     """Tulostaa satunnaisen hurrauksen annetulle oliolle.
-
     :param olio: hurraava olio
     """
     print('%s: "%s!"' % (olio.nimi, olio.arvo_hurraus()))
@@ -90,7 +89,6 @@ def hurraa(olio):
 
 def tulosta_rapaytys(rapayttaja):
     """Tulostaa sopivan tekstin räpäyttävälle oliolle.
-
     :param rapayttaja: silmiään räpäyttävä olio
     """
     if rapayttaja:
@@ -104,7 +102,6 @@ def tulosta_rapaytys(rapayttaja):
 
 def tuijota(olio1, olio2):
     """Asettaa annetut oliot taistelemaan keskenään yhden kierroksen.
-
     :param vasen: ensimmäinen taisteleva olio
     :type vasen: Union[Sankari, Peikko]
     :param oikea: toinen taisteleva olio
@@ -131,7 +128,6 @@ def tuijota(olio1, olio2):
 
 def taistele(vasen, oikea):
     """Asettaa annetut oliot taistelemaan keskenään, kunnes toinen voittaa.
-
     :param vasen: ensimmäinen taisteleva olio
     :type vasen: Union[Sankari, Peikko]
     :param oikea: toinen taisteleva olio
