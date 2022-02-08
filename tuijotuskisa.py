@@ -2,13 +2,12 @@ import random
 import time
 
 class Olento:
-        """Luokka jota Peikko ja Sankari perii.
-        Peritään rohkeus ja katseen_voima, jotka arvotaan joka kerta.
-        """
+    """Luokka jota Peikko ja Sankari perii.
+    Peritään rohkeus ja katseen_voima, jotka arvotaan joka kerta.
+    """
     def __init__(self, rohkeus, katseen_voima):
-        self.rohkeus = random.randint(4, 8)
-        self.katseen_voima = random.randint(2, 4)
-
+        self.rohkeus = random.randint(4, 12)
+        self.katseen_voima = random.randint(2, 7)
 
 
 class Peikko(Olento):
@@ -30,8 +29,6 @@ class Peikko(Olento):
         """Konstruktori."""
         self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
         super().__init__(rohkeus, katseen_voima)
-        
-        
         
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
@@ -63,7 +60,22 @@ class Peikko(Olento):
         """
         return self._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
 
+class Vuorenpeikko(Peikko):
+    def _init_(self, rohkeus, katseen_voima):
+        self.nimi = self._arvo_sanat(self.NIMITAVUT, 1, " ")
+        super().__init__(self, rohkeus, katseen_voima)
+        
+    def arvo_hurraus(self):
+        super()._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
 
+class Luolapeikko(Peikko):
+    def _init_(self, rohkeus, katseen_voima):
+        self.nimi = self._arvo_sanat(self.NIMITAVUT, 2, "-")
+        super().__init__(self, rohkeus, katseen_voima)
+        
+    def arvo_hurraus(self):
+        super()._arvo_sanat(self.RIEMUTAVUT, 1, " ", 0.7)
+        
 ### Kirjoita luokka Sankari tähän.
 class Sankari(Olento):
 
@@ -162,7 +174,7 @@ while sankari.rohkeus > 0:
     time.sleep(0.7)
 
     # Tulostetaan vastaan tulevan peikon tiedot.
-    peikko = Peikko(1, 2)
+    peikko = Vuorenpeikko(1, 2)
     peikon_tiedot = peikko.nimi + " [" + str(peikko.rohkeus) + "]"
     print("Vastaan tulee hurja %s!" % peikon_tiedot)
     time.sleep(1)
