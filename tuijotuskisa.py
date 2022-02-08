@@ -2,10 +2,13 @@ import random
 import time
 
 class Olento:
-    
-    def __init__(self, rohkeus):
-        rohkeus = self.rohkeus = random.randint(4, 8)
-        self.rohkeus = rohkeus
+        """Luokka jota Peikko ja Sankari perii.
+        Peritään rohkeus ja katseen_voima, jotka arvotaan joka kerta.
+        """
+    def __init__(self, rohkeus, katseen_voima):
+        self.rohkeus = random.randint(4, 8)
+        self.katseen_voima = random.randint(2, 4)
+
 
 
 class Peikko(Olento):
@@ -23,11 +26,12 @@ class Peikko(Olento):
     NIMITAVUT = ("Ur", "Gar", "Grah", "Gur", "Kan", "Kazah", "Bar", "Bazh", "Ragh", "Rudz")
     RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
 
-    def __init__(self, rohkeus):
+    def __init__(self, rohkeus, katseen_voima):
         """Konstruktori."""
         self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
-        super().__init__(rohkeus)
-        self.katseen_voima = random.randint(2, 4)
+        super().__init__(rohkeus, katseen_voima)
+        
+        
         
 
     def _arvo_sanat(self, tavut, n, erotin, p=0.5):
@@ -63,8 +67,9 @@ class Peikko(Olento):
 ### Kirjoita luokka Sankari tähän.
 class Sankari(Olento):
 
-    def __init__(self, nimi):
+    def __init__(self, nimi, rohkeus, katseen_voima):
         self.nimi = nimi
+        super().__init__(rohkeus, katseen_voima)
         """Parametrina nimi.
         
         Luokka kuvaa sankari
@@ -73,8 +78,6 @@ class Sankari(Olento):
         
         :self.rohkeus ja katseen_voima: Molemmille muuttujille annetaan satunnaiset luvut.
         """
-        self.rohkeus = random.randint(2, 8)
-        self.katseen_voima = random.randint(3, 10)
 
     def arvo_hurraus(self):
         """Metodi arvo_hurraus antaa satunnaisen hurrauksen listasta ja palauttaa sen.
@@ -148,7 +151,8 @@ def taistele(vasen, oikea):
         return oikea
 
 
-sankari = Sankari(input("Mikä on sankarimme nimi? "))
+# Kutsutaan nimi, rohkeus ja katseen_voima.
+sankari = Sankari(input("Mikä on sankarimme nimi? "), 3, 2)
 pelastetut = 0
 # Käydään tuijotuskisoja peikkoja vastaan, kunnes sankari karkaa
 while sankari.rohkeus > 0:
@@ -158,7 +162,7 @@ while sankari.rohkeus > 0:
     time.sleep(0.7)
 
     # Tulostetaan vastaan tulevan peikon tiedot.
-    peikko = Peikko(Peikko)
+    peikko = Peikko(1, 2)
     peikon_tiedot = peikko.nimi + " [" + str(peikko.rohkeus) + "]"
     print("Vastaan tulee hurja %s!" % peikon_tiedot)
     time.sleep(1)
