@@ -61,20 +61,21 @@ class Peikko(Olento):
         return self._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
 
 class Vuorenpeikko(Peikko):
-    def _init_(self, rohkeus, katseen_voima):
-        self.nimi = self._arvo_sanat(self.NIMITAVUT, 1, " ")
-        super().__init__(self, rohkeus, katseen_voima)
+    
+    NIMITAVUT = ("Dagoth", "UR", "Nerevar", "Dor", "Khan", "Baa", "Daa", "Saa", "Raa", "Taa")
+    RIEMUTAVUT = ("Come here", "Aaaa", "Easy", "GRAAAAAAAAAAAA", "TREAAghh", "raaaa", "Mummolaan", "poaaaaaaa", "Guh wuh", "sleep", "done")
+    
+    def _init_(self):
+        super().__init__(self, super.arvo_sanat(self, self.NIMITAVUT, 3, "-"), random.randint(4, 8), random.randint(2, 4))
         
-    def arvo_hurraus(self):
-        super()._arvo_sanat(self.RIEMUTAVUT, 8, " ", 0.7)
-
 class Luolapeikko(Peikko):
-    def _init_(self, rohkeus, katseen_voima):
-        self.nimi = self._arvo_sanat(self.NIMITAVUT, 2, "-")
-        super().__init__(self, rohkeus, katseen_voima)
-        
-    def arvo_hurraus(self):
-        super()._arvo_sanat(self.RIEMUTAVUT, 1, " ", 0.7)
+    
+    NIMITAVUT = ("DAA", "BBRR", "NAAA", "DDDD", "AAAAAR", "DRAV", "RTAAT", "YTA", "RHA", "TRTA")
+    RIEMUTAVUT = ("OOOK", "AAAA", "WAAAAAAAAAA", "HAAAAAAAAA", "TAH", "REAAAW", "EWAN", "FARR", "GUH", "SLUH", "DURN")
+    
+    def _init_(self):
+        super().__init__(self, super.arvo_sanat(self, self.NIMITAVUT, 3, "-"), random.randint(6, 10), random.randint(4, 6))
+
         
 ### Kirjoita luokka Sankari tähän.
 class Sankari(Olento):
@@ -174,7 +175,8 @@ while sankari.rohkeus > 0:
     time.sleep(0.7)
 
     # Tulostetaan vastaan tulevan peikon tiedot.
-    peikko = Vuorenpeikko(1, 2)
+    lista = [Peikko(1, 2), Vuorenpeikko(1, 2), Luolapeikko(1, 2)]
+    peikko = random.choice(lista)
     peikon_tiedot = peikko.nimi + " [" + str(peikko.rohkeus) + "]"
     print("Vastaan tulee hurja %s!" % peikon_tiedot)
     time.sleep(1)
