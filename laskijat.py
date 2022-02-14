@@ -35,6 +35,13 @@ class Laskija:
 
 
 ### Lisää MonenLaskija ja argumenttien_tulostaja tähän.
+class MonenLaskija(Laskija):
+    def summaa(self, *a):
+        summa = 0
+        for luku in a:
+            summa += luku
+        return summa
+        
 
 
 
