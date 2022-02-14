@@ -48,8 +48,9 @@ class MonenLaskija(Laskija):
             kerro *= luku
         return kerro
 
-class argumenttien_tulostaja(Laskija):
-
+def argumenttien_tulostaja(**a):
+    for nimi, arvio in a.items():
+        print(f'Argumentin "{nimi}" arvo on "{arvio}".')
 
 ### Seuraavat rivit tekevät tarkistustulostukset. Älä koske niihin.
 
