@@ -17,7 +17,6 @@ class Olento:
 
 class Peikko(Olento):
     """Luokka, joka kuvaa Peikon.
-
     :ivar katseen_voima: peikon katseen voimakkuus, arvotaan
     :type katseen_voima: int
     Julkiset metodit
@@ -93,15 +92,15 @@ class Luolapeikko(Peikko):
         
 ### Kirjoita luokka Sankari tähän.
 class Sankari(Olento):
-      """Parametrina nimi.
+    """Parametrina nimi.
         
-      Luokka kuvaa sankarin
+    Luokka kuvaa sankarin
         
-      :ivar nimi: sankarin nimi, arvotaan
-      :type nimi: str
-      Julkiset metodit
-        arvo_hurraus()
-      """
+    :ivar nimi: sankarin nimi, arvotaan
+    :type nimi: str
+    Julkiset metodit
+    arvo_hurraus()
+    """
     def __init__(self, nimi, rohkeus, katseen_voima):
         """Peritään rohkeus ja katseen_voima
         """
