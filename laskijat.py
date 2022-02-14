@@ -36,21 +36,47 @@ class Laskija:
 
 ### Lisää MonenLaskija ja argumenttien_tulostaja tähän.
 class MonenLaskija(Laskija):
+    """Perii Laskijalta, kuvailee MonenLaskijaa.
+    Peritään, jotta voidaan vaihtaa funktioiden metodeja.
+    
+    :ivar summa: Summa, lisätään kaikki moniko numerot tähän. Palautetaan lopputulos for-loopista.
+    :type summa: int
+    :ivar kerro: Kerro, kerrotaan kaikki moniko numerot tähän. Palautetaan lopputulos for-loopista.
+    :type kerro: int
+    :ivar luku: Joka monikossa oleva numero lisätään tähän ja sitten lasketaan.
+    :type luku: int
+    :ivar a: Missä monikon numero on ensimmäisenä.
+    :type a: int
+    """
     def summaa(self, *a):
+        """Laskee summat, palauttaa lopputuloksen for-loopista.
+        """
         summa = 0
         for luku in a:
             summa += luku
         return summa
         
     def kerro(self, *a):
+        """Laskee tulon, palauttaa lopputuloksen for-loopista.
+        """
         kerro = 1
         for luku in a:
             kerro *= luku
         return kerro
 
 def argumenttien_tulostaja(**a):
-    for nimi, arvio in a.items():
-        print(f'Argumentin "{nimi}" arvo on "{arvio}".')
+    """Funktio lisää sanakirjaan avaimet ja arvot kutsumuksesta.
+    Tulostetaan lopussa missä kerrotaan avain ja sen arvo.
+    
+    :ivar a: Sanakirja, jossa on avaimet ja arvot.
+    :type a: dict
+    :ivar avainsana: Avain tähän
+    :type avainsana: str
+    :ivar arvo: Arvo tähän
+    :type arvo: str
+    """
+    for avainsana, arvo in a.items():
+        print(f'Argumentin "{avainsana}" arvo on {arvo}.')
 
 ### Seuraavat rivit tekevät tarkistustulostukset. Älä koske niihin.
 
