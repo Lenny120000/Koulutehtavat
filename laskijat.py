@@ -42,8 +42,13 @@ class MonenLaskija(Laskija):
             summa += luku
         return summa
         
+    def kerro(self, *a):
+        kerro = 1
+        for luku in a:
+            kerro *= luku
+        return kerro
 
-
+class argumenttien_tulostaja(Laskija):
 
 
 ### Seuraavat rivit tekevät tarkistustulostukset. Älä koske niihin.
