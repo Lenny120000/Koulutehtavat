@@ -15,6 +15,7 @@ class Olento:
         self.katseen_voima = random.randint(2, 7)
 
 
+
 class Peikko(Olento):
     """Luokka, joka kuvaa Peikon.
     :ivar katseen_voima: peikon katseen voimakkuus, arvotaan
@@ -89,7 +90,7 @@ class Luolapeikko(Peikko):
         """
         super().__init__(self, super.arvo_sanat(self, self.NIMITAVUT, 3, "-"), random.randint(6, 10), random.randint(4, 6))
 
-        
+
 ### Kirjoita luokka Sankari tähän.
 class Sankari(Olento):
     """Parametrina nimi.
@@ -107,9 +108,8 @@ class Sankari(Olento):
         self.nimi = nimi
         super().__init__(rohkeus, katseen_voima)
 
-
     def arvo_hurraus(self):
-        """Metodi arvo_hurraus antaa satunnaisen hurrauksen listasta ja palauttaa sen.
+        """Metodi arvo_hurraus antaa satunnaisen HURRAUKSET listasta ja palauttaa sen.
         """
         HURRAUKSET = ["FRAAAG!!!", "TAKE THIS!", "MUST FRAG!", "SIR YES SIR OORAH!", "RAAAGH!!"]
         return random.choice(HURRAUKSET)
