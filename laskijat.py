@@ -39,9 +39,9 @@ class MonenLaskija(Laskija):
     """Perii Laskijalta, kuvailee MonenLaskijaa.
     Peritään, jotta voidaan vaihtaa funktioiden metodeja.
     
-    :ivar summa: Summa, lisätään kaikki moniko numerot tähän. Palautetaan lopputulos for-loopista.
+    :ivar summa: Summa, lisätään kaikki monikko numerot tähän. Palautetaan lopputulos for-loopista.
     :type summa: int
-    :ivar kerro: Kerro, kerrotaan kaikki moniko numerot tähän. Palautetaan lopputulos for-loopista.
+    :ivar kerro: Kerro, kerrotaan kaikki monikko numerot tähän. Palautetaan lopputulos for-loopista.
     :type kerro: int
     :ivar luku: Joka monikossa oleva numero lisätään tähän ja sitten lasketaan.
     :type luku: int
