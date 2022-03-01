@@ -39,8 +39,6 @@ class MonenLaskija(Laskija):
     """Perii Laskijalta, kuvailee MonenLaskijaa.
     Peritään, jotta voidaan vaihtaa funktioiden metodeja.
     
-    :ivar summa: Summa, lisätään kaikki monikko numerot tähän. Palautetaan lopputulos for-loopista.
-    :type summa: int
     :ivar kerro: Kerro, kerrotaan kaikki monikko numerot tähän. Palautetaan lopputulos for-loopista.
     :type kerro: int
     :ivar luku: Joka monikossa oleva numero lisätään tähän ja sitten lasketaan.
@@ -49,12 +47,9 @@ class MonenLaskija(Laskija):
     :type a: int
     """
     def summaa(self, *a):
-        """Laskee summat, palauttaa lopputuloksen for-loopista.
+        """Laskee summat 'sum' komennolla, palauttaa lopputuloksen.
         """
-        summa = 0
-        for luku in a:
-            summa += luku
-        return summa
+        return sum(a)
         
     def kerro(self, *a):
         """Laskee tulon, palauttaa lopputuloksen for-loopista.
