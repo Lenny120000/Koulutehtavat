@@ -6,8 +6,8 @@ class Olento:
     """
     def __init__(self, rohkeus, katseen_voima):
         """Peritään rohkeus ja katseen_voima, jotka arvotaan joka kerta.
-        :ivar nimi: peikon nimi, arvotaan
-        :type nimi: str
+        :ivar katseen_voima: peikon katseen voima, arvotaan
+        :type katseen_voima: int
         :ivar rohkeus: peikon rohkeus, arvotaan
         :type rohkeus: int
         """
