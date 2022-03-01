@@ -18,8 +18,6 @@ class Olento:
 
 class Peikko(Olento):
     """Luokka, joka kuvaa Peikon.
-    :ivar katseen_voima: peikon katseen voimakkuus, arvotaan
-    :type katseen_voima: int
     Julkiset metodit
         arvo_hurraus()
     """
@@ -28,7 +26,11 @@ class Peikko(Olento):
     RIEMUTAVUT = ("Agh", "Ugh", "Ourgh", "Drar", "Brar", "Dza", "Gra", "Gur", "Rah", "Urgh", "Ra")
 
     def __init__(self, rohkeus, katseen_voima):
-        """Konstruktori."""
+        """Konstruktori.
+        Perii Olennolta satunnaisesti laskettu katseen_voima ja rohkeus.
+        :ivar nimi: Peikon nimi, arvotaan _arvo_sanat().
+        :type nimi: str
+        """
         self.nimi = self._arvo_sanat(self.NIMITAVUT, 3, "-")
         super().__init__(rohkeus, katseen_voima)
         
