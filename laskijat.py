@@ -47,7 +47,7 @@ class MonenLaskija(Laskija):
     :type a: int
     """
     def summaa(self, *a):
-        """Laskee summat 'sum' komennolla, palauttaa lopputuloksen.
+        """Laskee summat sum komennolla, palauttaa lopputuloksen.
         """
         return sum(a)
         
