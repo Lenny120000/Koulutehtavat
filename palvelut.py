@@ -3,7 +3,10 @@
 - = suojattu
 # = yksityinen
 
-setter ja getter määritelmään jos halutaan suojatuksi
+[1, 42, 13]
+01-042-013
+
+setter ja getter määritelmään jos halutaan suojatuksi jne.
 """
 
 class Palvelu:
