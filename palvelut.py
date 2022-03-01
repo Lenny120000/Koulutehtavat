@@ -1,7 +1,7 @@
 """
 + = julkinen
-- = suojattu
-# = yksityinen
+- = yksityinen
+# = suojattu
 
 [1, 42, 13]
 01-042-013
