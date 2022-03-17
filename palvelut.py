@@ -2,18 +2,20 @@
 + = julkinen
 - = yksityinen
 # = suojattu
-
 [1, 42, 13]
 01-042-013
-
 setter ja getter määritelmään jos halutaan suojatuksi jne.
 """
 
 class Palvelu:
-  pass
+    def init(self, tuotenimi):
+        asiakkaat = []
 
 class ParempiPalvelu(Palvelu):
-  pass
+    def init(self, tuotenimi):
 
 class Asiakas:
-  pass
+    """Luokka, joka antaa asiakkaalle nimen, numeron, iän ja luo numeron
+    Julkiset methodit:
+    """
+    def init(self, nimi, ika):
