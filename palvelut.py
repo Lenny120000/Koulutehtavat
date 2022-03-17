@@ -15,7 +15,7 @@ class ParempiPalvelu(Palvelu):
     def init(self, tuotenimi):
 
 class Asiakas:
-    """Luokka, joka antaa asiakkaalle nimen, numeron, iän ja luo numeron
+    """Luokka asettaa asiakkaalle numeron, nimen, iän ja luo numeron
     Julkiset methodit:
     """
     def init(self, nimi, ika):
