@@ -7,38 +7,64 @@
 setter ja getter määritelmään jos halutaan suojatuksi jne.
 """
 
+import random
+
 class Palvelu:
     def __init__(self, tuotenimi):
-        asiakkaat = []
+        self.tuotenimi = tuotenimi
+        
+    Asiakas = []
 
 class ParempiPalvelu(Palvelu):
     def __init__(self, tuotenimi):
-        edut = []
+        super().__init__(tuotenimi)
+
+    edut =[]
+    
+    def lisaa_etu(self, etu):
+        pass
+    
+    def tulosta_edut(self):
+        pass
 
 class Asiakas:
     """Luokka asettaa asiakkaalle numeron, nimen, iän ja luo numeron
     Julkiset methodit:
     """
     def __init__(self, nimi, ika):
+        self.asiakasnumero = self.luo_nro()
+        self.nimi = nimi
+        self.ika = ika
         
-    def luo_nro():
+    def luo_nro(self):
+        numero =[]
+        numero.append(random.randint(0, 99))
+        numero.append(random.randint(0, 999))
+        numero.append(random.randint(0, 999))
+        return numero
 
     def set_nimi(self, nimi):
+        self.nimi = nimi
         if nimi == False:
-            except ValueError:
+            raise ValueError:
                 print("Virhe! Anna nimi uudestaan.")
         if nimi == True:
             self.__nimi = nimi
             
     def set_ika(self, ika):
-        if nimi == False:
-            except ValueError:
-                print("Virhe! Anna ikä uudestaan.")
-        if nimi == True:
-            self.__ika = ika
+        self.ika = ika
         
-    def get_nimi(self, nimi, asiakasnro):
-        return nimi, asiakasnro
+        if ika == False:
+            raise ValueError:
+                print("Virhe! Anna ikä uudestaan.")
+        if ika == True:
+            self.__ika = ika
+            
+    def get_nimi(self):
+        return self.nimi
+
+    def get_ika(self):
+        return self.ika
     
-    def get_ika(self, ika, asiakasnro):
-        return ika, asiakasnro
+    def get_asiakasnumero(self):
+        return self.asiakasnumero
