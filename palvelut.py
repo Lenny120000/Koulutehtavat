@@ -23,9 +23,20 @@ class Asiakas:
         
     def luo_nro():
 
-    def set_arvo(self, nimi, ika):
-        if nimi and ika == False:
+    def set_nimi(self, nimi):
+        if nimi == False:
             except ValueError:
-                print("")
+                print("Virhe! Anna nimi uudestaan.")
+        if nimi == True:
+            
+    def set_ika(self, ika):
+        if nimi == False:
+            except ValueError:
+                print("Virhe! Anna ikä uudestaan.")
+        if nimi == True:
         
-    def get_arvo(self, nimi, ika, asiakasnumero):
+    def get_nimi(self, nimi, asiakasnumero):
+        return nimi, asiakasnumero
+    
+    def get_ika(self, ika, asiakasnumero):
+        return ika, asiakasnumero
