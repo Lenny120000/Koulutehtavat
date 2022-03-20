@@ -28,12 +28,14 @@ class Asiakas:
             except ValueError:
                 print("Virhe! Anna nimi uudestaan.")
         if nimi == True:
+            self.__nimi = nimi
             
     def set_ika(self, ika):
         if nimi == False:
             except ValueError:
                 print("Virhe! Anna ikä uudestaan.")
         if nimi == True:
+            self.__ika = ika
         
     def get_nimi(self, nimi, asiakasnumero):
         return nimi, asiakasnumero
