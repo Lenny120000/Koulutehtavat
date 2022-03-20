@@ -37,8 +37,8 @@ class Asiakas:
         if nimi == True:
             self.__ika = ika
         
-    def get_nimi(self, nimi, asiakasnumero):
-        return nimi, asiakasnumero
+    def get_nimi(self, nimi, asiakasnro):
+        return nimi, asiakasnro
     
-    def get_ika(self, ika, asiakasnumero):
-        return ika, asiakasnumero
+    def get_ika(self, ika, asiakasnro):
+        return ika, asiakasnro
