@@ -9,24 +9,6 @@ setter ja getter määritelmään jos halutaan suojatuksi jne.
 
 import random
 
-class Palvelu:
-    def __init__(self, tuotenimi):
-        self.tuotenimi = tuotenimi
-        
-    Asiakas = []
-
-class ParempiPalvelu(Palvelu):
-    def __init__(self, tuotenimi):
-        super().__init__(tuotenimi)
-
-    edut =[]
-    
-    def lisaa_etu(self, etu):
-        pass
-    
-    def tulosta_edut(self):
-        pass
-
 class Asiakas:
     """Luokka asettaa asiakkaalle numeron, nimen, iän ja luo numeron
     Julkiset methodit:
@@ -68,3 +50,34 @@ class Asiakas:
     
     def get_asiakasnumero(self):
         return self.asiakasnumero
+
+class Palvelu:
+    def __init__(self, tuotenimi):
+        self.tuotenimi = tuotenimi
+        
+    asiakkaat = []
+    
+    def lisaa_asiakas(self, asiakas):
+        self.asiakkaat.append(asiakas)
+        pass
+
+    def tulosta_asiakkaat(self):
+        for asiakas in self.asiakkaat:
+            print(Asiakas.get_nimi(asiakas),
+    Asiakas.get_asiakasnumero(asiakas), Asiakas.get_ika(asiakas))
+
+class ParempiPalvelu(Palvelu):
+    def __init__(self, tuotenimi):
+        super().__init__(tuotenimi)
+
+    edut =[]
+    
+    def lisaa_etu(self, etu):
+        self.edut.append(etu)
+        pass
+
+    def poista_etu(self, etu):
+        pass
+
+    def tulosta_edut(self):
+        pass
