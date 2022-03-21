@@ -54,30 +54,37 @@ class Asiakas:
 class Palvelu:
     def __init__(self, tuotenimi):
         self.tuotenimi = tuotenimi
-        
-    asiakkaat = []
-    
+        self.__asiakkaat = []
+
     def lisaa_asiakas(self, asiakas):
-        self.asiakkaat.append(asiakas)
-        pass
+        self.__asiakkaat.append(asiakas)
+
+    def poista_asiakas(self, asiakas):
+        self.__asiakkaat.remove(asiakas)
+
+    def luo_asiakasrivi(self, asiakas):
+        return f'   {Asiakas.get_nimi(asiakas)} ({Asiakas.get_asiakasnumero(asiakas)}) on {Asiakas.get_ika(asiakas)} vuotias.'
+
+    def get_tuotenimi(self):
+        return self.tuotenimi
 
     def tulosta_asiakkaat(self):
-        for asiakas in self.asiakkaat:
-            print(Asiakas.get_nimi(asiakas),
-    Asiakas.get_asiakasnumero(asiakas), Asiakas.get_ika(asiakas))
+        print("Tuotteen " + self.tuotenimi + " asiakkaat ovat")
+        for asiakas in self.__asiakkaat:
+            print(self.luo_asiakasrivi(asiakas))
 
 class ParempiPalvelu(Palvelu):
     def __init__(self, tuotenimi):
         super().__init__(tuotenimi)
-
-    edut =[]
+        self.__edut =[]
     
     def lisaa_etu(self, etu):
-        self.edut.append(etu)
-        pass
+        self.__edut.append(etu)
 
     def poista_etu(self, etu):
-        pass
+        self.__edut.remove(etu)
 
     def tulosta_edut(self):
-        pass
+        print("Tuotteen " + super().get_tuotenimi() + " edut ovat:")
+        for etu in self.__edut:
+            print(f'   {etu}')
