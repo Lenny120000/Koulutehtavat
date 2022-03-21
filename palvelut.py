@@ -26,22 +26,16 @@ class Asiakas:
         return numero
 
     def set_nimi(self, nimi):
-        self.nimi = nimi
-        if nimi == False:
-            raise ValueError:
-                print("Virhe! Anna nimi uudestaan.")
-        if nimi == True:
-            self.__nimi = nimi
-            
+        if bool(nimi):
+            self.nimi = nimi
+        else:
+            raise ValueError('Virhe! Anna nimi uudestaan.')
+
     def set_ika(self, ika):
-        self.ika = ika
-        
-        if ika == False:
-            raise ValueError:
-                print("Virhe! Anna ikä uudestaan.")
-        if ika == True:
-            self.__ika = ika
-            
+        if type(ika) is int:
+            self.ika = ika
+        else:
+            raise ValueError('Virhe! Anna ika uudestaan.')
     def get_nimi(self):
         return self.nimi
 
@@ -49,7 +43,8 @@ class Asiakas:
         return self.ika
     
     def get_asiakasnumero(self):
-        return self.asiakasnumero
+        return f'{self.asiakasnumero[0]:02}-{self.asiakasnumero[1]:03}-{self.asiakasnumero[2]:03}'
+
 
 class Palvelu:
     def __init__(self, tuotenimi):
@@ -82,7 +77,10 @@ class ParempiPalvelu(Palvelu):
         self.__edut.append(etu)
 
     def poista_etu(self, etu):
-        self.__edut.remove(etu)
+        try:
+            self.__edut.remove(etu)
+        except:
+            pass
 
     def tulosta_edut(self):
         print("Tuotteen " + super().get_tuotenimi() + " edut ovat:")
