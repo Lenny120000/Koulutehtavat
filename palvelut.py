@@ -10,8 +10,13 @@ setter ja getter määritelmään jos halutaan suojatuksi jne.
 import random
 
 class Asiakas:
-    """Luokka asettaa asiakkaalle numeron, nimen, iän ja luo numeron
-    Julkiset methodit:
+    """Luokka asettaa asiakkaalle numeron, nimen, iän ja luo numeron.
+    Julkiset methodit
+        set_nimi()
+        set_ika()
+        get_nimi()
+        get_ika()
+        get_asiakasnumero()
     """
     def __init__(self, nimi, ika):
         """Konstruktorissa annetaan muuttujat, jotka peritään myöhemmin.
@@ -75,14 +80,31 @@ class Asiakas:
 
 
 class Palvelu:
+    """Luokalla hallitaan asiakas listaa.
+    Julkiset methodit
+        lisaa_asiakas()
+        poista_asiakas()
+        get_tuotenimi()
+        tulosta_asiakkaat()
+    """
     def __init__(self, tuotenimi):
+        """Konstruktori pistetään lista, jota käytetään muissa määritelmissä.
+        :ivar __asiakkaat: 
+        :type __asiakkaat: dict
+        :ivar tuotenimi:
+        :type tuotenimi: str
+        """
         self.tuotenimi = tuotenimi
         self.__asiakkaat = []
 
     def lisaa_asiakas(self, asiakas):
+        """Liittää nimen ja iän asiakas listaan.
+        """
         self.__asiakkaat.append(asiakas)
 
     def poista_asiakas(self, asiakas):
+        """
+        """
         self.__asiakkaat.remove(asiakas)
 
     def _luo_asiakasrivi(self, asiakas):
@@ -92,6 +114,8 @@ class Palvelu:
         return self.tuotenimi
     
     def tulosta_asiakkaat(self):
+        """Tulostaa lopulta asiakkaan tiedot.
+        """
         print("Tuotteen " + self.tuotenimi + " asiakkaat ovat")
         for asiakas in self.__asiakkaat:
             print(self._luo_asiakasrivi(asiakas))
