@@ -15,19 +15,22 @@ class Asiakas:
     """
     def __init__(self, nimi, ika):
         """Konstruktorissa annetaan muuttujat, jotka peritään myöhemmin.
-        :ivar asiakasnumero:
-        :type asiakasnumero:
-        :ivar nimi:
-        :type nimi:
-        :ivar ika:
-        :type ika:
+        :ivar asiakasnumero: asiakkaan puhelin numero
+        :type asiakasnumero: int[]
+        :ivar nimi: asiakkaan nimi
+        :type nimi: str
+        :ivar ika: asiakkaan ikä
+        :type ika: int
         """
-        
         self.__asiakasnumero = self.__luo_nro()
         self.__nimi = nimi
         self.__ika = ika
         
     def __luo_nro(self):
+        """Satunnaisesti arvoo asiakkaan puhelinnumeron.
+        :ivar numero: lista johon pistetään arvottu puhelinnumero
+        :type numero: int[]
+        """
         numero = []
         numero.append(random.randint(0, 99))
         numero.append(random.randint(0, 999))
@@ -35,20 +38,36 @@ class Asiakas:
         return numero
 
     def set_nimi(self, nimi):
+        """Jos bool on True, se antaa nimen muuttujalle.
+        Jos bool on tyhjä se on False, sitten se nostaa virheen ja kysyy nimeä uudestaan.
+        :param nimi: asiakkaan nimi
+        :type nimi: str
+        """
         if bool(nimi):
             self.nimi = nimi
         else:
             raise ValueError('Virhe! Anna nimi uudestaan.')
 
     def set_ika(self, ika):
+        """Jos type on int, se antaa nimen muuttujalle.
+        Jos type ei ole int, se on False. Sitten se nostaa virheen ja kysyy nimeä uudestaan.
+        :param ika: asiakkaan ikä
+        :type ika: int
+        """
         if type(ika) is int:
             self.ika = ika
         else:
             raise ValueError('Virhe! Anna ika uudestaan.')
     def get_nimi(self):
+        """
+        
+        """
         return self.__nimi
 
     def get_ika(self):
+        """
+        
+        """
         return self.__ika
     
     def get_asiakasnumero(self):
