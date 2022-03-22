@@ -1,12 +1,3 @@
-"""
-+ = julkinen
-- = yksityinen __
-# = suojattu _
-[1, 42, 13]
-01-042-013
-setter ja getter määritelmään jos halutaan suojatuksi jne.
-"""
-
 import random
 
 class Asiakas:
@@ -89,16 +80,16 @@ class Palvelu:
     """
     def __init__(self, tuotenimi):
         """Konstruktori pistetään lista, jota käytetään muissa määritelmissä.
-        :ivar __asiakkaat: 
+        :ivar __asiakkaat: Kaikki asiakkaiden tiedot tänne.
         :type __asiakkaat: dict
-        :ivar tuotenimi:
+        :ivar tuotenimi: Pistetään tuotenimen tänne.
         :type tuotenimi: str
         """
         self.tuotenimi = tuotenimi
         self.__asiakkaat = []
 
     def lisaa_asiakas(self, asiakas):
-        """Liittää nimen ja iän asiakas listaan.
+        """Liittää nimen ja iän asiakas listaan. Jos huomataan että on virheellinen, siitä ilmoitetaan.
         """
         if bool(asiakas):
             self.__asiakkaat.append(asiakas)
@@ -106,18 +97,21 @@ class Palvelu:
             raise ValueError('Virhe! Anna asiakas uudestaan.')
 
     def poista_asiakas(self, asiakas):
-        """
+        """Poistetaan kutsunnassa asiakkaan nimi ja ika. Jos ei olekkaan asiakasta olemassa, ohitetaan virhe.
         """
         try:
             self.__asiakkaat.remove(asiakas)
         except ValueError:
             pass
-        
 
     def _luo_asiakasrivi(self, asiakas):
+        """Palauttaa kutsunnasta asiakkaan nimi, asiakasnumero ja ika.
+        """
         return f'   {Asiakas.get_nimi(asiakas)} ({Asiakas.get_asiakasnumero(asiakas)}) on {Asiakas.get_ika(asiakas)} vuotias.'
 
     def get_tuotenimi(self):
+        """Palauttaa tuotenimen.
+        """
         return self.tuotenimi
     
     def tulosta_asiakkaat(self):
@@ -129,20 +123,36 @@ class Palvelu:
 
 
 class ParempiPalvelu(Palvelu):
+    """Luokassa käsitellään tuotenimeä ja sen etuja.
+    Julkiset metodit
+        lisaa_etu
+        poista_etu
+        tulosta_edut
+    """
     def __init__(self, tuotenimi):
+        """Konstruktorissa peritään tuotenimi Palvelu luokalta.
+        :ivar __edut: Tuotenimen edut.
+        :type __edut: str[]
+        """
         super().__init__(tuotenimi)
         self.__edut = []
     
     def lisaa_etu(self, etu):
+        """Liitetään kutsunnassa pistetty etu listaan.
+        """
         self.__edut.append(etu)
 
     def poista_etu(self, etu):
+        """Poistetaan kutsunnassa pistetty etu listasta. Jos ei ole olemassa, virhe ohitetaan.
+        """
         try:
             self.__edut.remove(etu)
         except:
             pass
 
     def tulosta_edut(self):
+        """Lopulta tulostaa tuotenimi ja sen edut kutsunnassa.
+        """
         print("Tuotteen " + super().get_tuotenimi() + " edut ovat:")
         for etu in self.__edut:
             print(f'   {etu}')
