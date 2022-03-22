@@ -59,18 +59,18 @@ class Asiakas:
         else:
             raise ValueError('Virhe! Anna ika uudestaan.')
     def get_nimi(self):
-        """
-        
+        """Palautetaan __nimi kun sitä kutsutaan.
         """
         return self.__nimi
 
     def get_ika(self):
-        """
-        
+        """Sama kuin get_nimi(), mutta annetaan ika muuttuja.
         """
         return self.__ika
     
     def get_asiakasnumero(self):
+        """Palauttaa asiakasnumeron kun sitä kutsutaan.
+        """
         return f'{self.__asiakasnumero[0]:02}-{self.__asiakasnumero[1]:03}-{self.__asiakasnumero[2]:03}'
 
 
