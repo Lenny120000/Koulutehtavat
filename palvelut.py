@@ -100,12 +100,19 @@ class Palvelu:
     def lisaa_asiakas(self, asiakas):
         """Liittää nimen ja iän asiakas listaan.
         """
-        self.__asiakkaat.append(asiakas)
+        if bool(asiakas):
+            self.__asiakkaat.append(asiakas)
+        else:
+            raise ValueError('Virhe! Anna asiakas uudestaan.')
 
     def poista_asiakas(self, asiakas):
         """
         """
-        self.__asiakkaat.remove(asiakas)
+        try:
+            self.__asiakkaat.remove(asiakas)
+        except ValueError:
+            pass
+        
 
     def _luo_asiakasrivi(self, asiakas):
         return f'   {Asiakas.get_nimi(asiakas)} ({Asiakas.get_asiakasnumero(asiakas)}) on {Asiakas.get_ika(asiakas)} vuotias.'
