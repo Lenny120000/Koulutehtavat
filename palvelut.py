@@ -42,7 +42,7 @@ class Asiakas:
         if bool(nimi):
             self.nimi = nimi
         else:
-            raise ValueError('Virhe! Anna nimi uudestaan.')
+            raise ValueError('Uusi nimi on annettava.')
 
     def set_ika(self, ika):
         """Jos type on int, se antaa nimen muuttujalle.
@@ -81,7 +81,7 @@ class Palvelu:
     def __init__(self, tuotenimi):
         """Konstruktori pistetään lista, jota käytetään muissa määritelmissä.
         :ivar __asiakkaat: Kaikki asiakkaiden tiedot tänne.
-        :type __asiakkaat: dict
+        :type __asiakkaat: list
         :ivar tuotenimi: Pistetään tuotenimen tänne.
         :type tuotenimi: str
         """
@@ -94,7 +94,7 @@ class Palvelu:
         if bool(asiakas):
             self.__asiakkaat.append(asiakas)
         else:
-            raise ValueError('Virhe! Anna asiakas uudestaan.')
+            raise ValueError('Asiakas on annettava.')
 
     def poista_asiakas(self, asiakas):
         """Poistetaan kutsunnassa asiakkaan nimi ja ika. Jos ei olekkaan asiakasta olemassa, ohitetaan virhe.
@@ -107,7 +107,7 @@ class Palvelu:
     def _luo_asiakasrivi(self, asiakas):
         """Palauttaa kutsunnasta asiakkaan nimi, asiakasnumero ja ika.
         """
-        return f'   {Asiakas.get_nimi(asiakas)} ({Asiakas.get_asiakasnumero(asiakas)}) on {Asiakas.get_ika(asiakas)} vuotias.'
+        return f'{Asiakas.get_nimi(asiakas)} ({Asiakas.get_asiakasnumero(asiakas)}) on {Asiakas.get_ika(asiakas)}-vuotias.'
 
     def get_tuotenimi(self):
         """Palauttaa tuotenimen.
@@ -120,6 +120,7 @@ class Palvelu:
         print("Tuotteen " + self.tuotenimi + " asiakkaat ovat")
         for asiakas in self.__asiakkaat:
             print(self._luo_asiakasrivi(asiakas))
+        print()
 
 
 class ParempiPalvelu(Palvelu):
@@ -155,4 +156,4 @@ class ParempiPalvelu(Palvelu):
         """
         print("Tuotteen " + super().get_tuotenimi() + " edut ovat:")
         for etu in self.__edut:
-            print(f'   {etu}')
+            print(f'{etu}')
