@@ -82,7 +82,7 @@ class Palvelu:
         """Konstruktori pistetään lista, jota käytetään muissa määritelmissä.
         :ivar __asiakkaat: Kaikki asiakkaiden tiedot tänne.
         :type __asiakkaat: list
-        :ivar tuotenimi: Pistetään tuotenimen tänne.
+        :ivar tuotenimi: Pistetään tuotenimi tänne.
         :type tuotenimi: str
         """
         self.tuotenimi = tuotenimi
@@ -108,11 +108,6 @@ class Palvelu:
         """Palauttaa kutsunnasta asiakkaan nimi, asiakasnumero ja ika.
         """
         return f'{Asiakas.get_nimi(asiakas)} ({Asiakas.get_asiakasnumero(asiakas)}) on {Asiakas.get_ika(asiakas)}-vuotias.'
-
-    def get_tuotenimi(self):
-        """Palauttaa tuotenimen.
-        """
-        return self.tuotenimi
     
     def tulosta_asiakkaat(self):
         """Tulostaa lopulta asiakkaan tiedot.
@@ -126,9 +121,9 @@ class Palvelu:
 class ParempiPalvelu(Palvelu):
     """Luokassa käsitellään tuotenimeä ja sen etuja.
     Julkiset metodit
-        lisaa_etu
-        poista_etu
-        tulosta_edut
+        lisaa_etu()
+        poista_etu()
+        tulosta_edut()
     """
     def __init__(self, tuotenimi):
         """Konstruktorissa peritään tuotenimi Palvelu luokalta.
@@ -154,6 +149,6 @@ class ParempiPalvelu(Palvelu):
     def tulosta_edut(self):
         """Lopulta tulostaa tuotenimi ja sen edut kutsunnassa.
         """
-        print("Tuotteen " + super().get_tuotenimi() + " edut ovat:")
+        print("Tuotteen " + self.tuotenimi + " edut ovat:")
         for etu in self.__edut:
             print(f'{etu}')
